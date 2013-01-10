@@ -1,0 +1,74 @@
+package edu.nyu.pqs.addressbook;
+
+public class Main {
+
+  public static void main(String[] args)
+  {
+      String fName="Prachi";
+      String mName="Ramdas";
+      String lName="Kurkute";
+      String add1="831 Newark Ave";
+      String add2="Apt #3";
+      String city="Jersey City";
+      String state="New Jersey";
+      String country="USA";
+      int pin=07306;
+      String email="pk1077@nyu.edu";
+      int cCode=973;
+      int aCode=220;
+      int num=9475;
+      String note="Hello";
+      Name name=new Name(fName,mName,lName);
+      Address address=new Address(add1,add2,city,state,country,pin);
+      PhoneNumber phone=new PhoneNumber(cCode,aCode,num);
+      
+      //Creating Address Book
+      AddressBook addB1=new AddressBook("Friends");
+      
+      //Creating Entries and adding to Address Book
+      Entry.Builder eb1=new Entry.Builder(name,phone,email).address(address).note(note);
+      Entry e1=eb1.build();
+      addB1.add(e1);
+      Entry.Builder eb2=new Entry.Builder(name,phone,"Girish").address(address).note(note);
+      Entry e2=eb2.build();
+      addB1.add(e2);
+      Entry.Builder eb3=new Entry.Builder(name,phone,"Soniya").address(address).note(note);
+      Entry e3=eb3.build();
+      addB1.add(e3);
+      Entry.Builder eb4=new Entry.Builder(name,phone,"Saurabh").address(address).note(note);
+      Entry e4=eb4.build();
+      addB1.add(e4);
+    
+      addB1.show();
+      
+    //Creating Address Book
+      AddressBook addB2=new AddressBook("Realtives");
+      
+      //Creating Entries and adding to Address Book
+      Entry.Builder eb5=new Entry.Builder(name,phone,email).address(address).note(note);
+      Entry e5=eb5.build();
+      addB2.add(e5);
+      Entry.Builder eb6=new Entry.Builder(name,phone,"Girish").address(address).note(note);
+      Entry e6=eb6.build();
+      addB2.add(e6);
+      Entry.Builder eb7=new Entry.Builder(name,phone,"Soniya").address(address).note(note);
+      Entry e7=eb7.build();
+      addB2.add(e7);
+      Entry.Builder eb8=new Entry.Builder(name,phone,"Saurabh").address(address).note(note);
+      Entry e8=eb8.build();
+      addB2.add(e8);
+      
+      addB2.show();
+      
+      System.out.print("Comparing two Address Books: ");
+      boolean val=addB1.equals(addB2);
+      if(val==true)
+      {
+    	  System.out.println("Equal");
+      }
+      else
+      {
+    	  System.out.println("Not Equal");
+      }
+  }
+}

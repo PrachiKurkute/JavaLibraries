@@ -1,0 +1,60 @@
+Please enter your code review in this file as plain text
+and make sure to include it when you commit your project.
+
+Enforce noninstantiability with a private constructor:
+ No
+
+Override equals, hashCode, and toString:
+ In ContactItem
+ In equals()
+  No
+ In hashCode()
+  No
+ In toString()
+  Yes 
+ In Contact
+ In equals()
+  No
+ In hashCode()
+  No
+ In toString()
+  Yes
+ In AddressBook
+ In equals()
+  No
+ In hashCode()
+  No
+ In toString()
+  Yes
+
+Implement Comparable:
+ No for ContactItem
+ No for Contact
+ No for AddressBook
+
+Minimize the accessibility of member variables:
+ in ContactItem
+ enum ItemType is declared public and can be accessed by anybody which is not desirable
+ in ContactS
+ Reference to contactitem which is private is revealed through method getContactItems()
+ in AddressBook
+ Reference to list contactList which is private is revealed through method getList()
+ method saveToFile(File file) is called from method saveToFile(), so it should be declared as private, 
+ Otherwise no point in decaring it as public and making a separate method saveToFile() from which the method is called saveToFile(File file)
+
+Minimize mutability:
+ in ContactItem
+ members are not declared as final
+ in ContactS
+ members are not declared as final
+
+Documentation:
+ Java Docs for all functions and objects are present
+
+Indentation:
+ Characters per line exceeds limit of 80
+
+ Name, Address, Phone Number etc. can be modelled as higher level objects. In this case, Builder pattern could have been used. 
+ It would have been better if there is a separate class handling all file related functionality.
+ removeContact() in AddreddBook does not throw an exception if the contact to be removed is invalid
+ 

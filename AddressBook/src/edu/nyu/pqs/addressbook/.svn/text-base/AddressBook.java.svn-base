@@ -1,0 +1,102 @@
+package edu.nyu.pqs.addressbook;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class AddressBook {
+    List<Entry> ls;
+    String bookName;
+    
+    public AddressBook(String name) {
+      bookName=name;
+      ls=new ArrayList<Entry>();
+    }
+    
+    public void add(Entry entry) {
+      ls.add(entry);
+    }
+    
+    public void show() {
+    	
+      System.out.println("Address Book Name: "+bookName);
+      Iterator it=ls.iterator();
+      
+      while(it.hasNext())
+      {
+        Entry e=(Entry)it.next();
+        e.show();
+      }
+    }
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((bookName == null) ? 0 : bookName.hashCode());
+		result = prime * result + ((ls == null) ? 0 : ls.hashCode());
+		return result;
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (!(obj instanceof AddressBook))
+			return false;
+		AddressBook other = (AddressBook) obj;
+		if (bookName == null) {
+			if (other.bookName != null)
+				return false;
+		} else if (!bookName.equals(other.bookName))
+			return false;
+		if (ls == null) {
+			if (other.ls != null)
+				return false;
+		} else if (!ls.equals(other.ls))
+			return false;
+		return true;
+	}
+    
+    /*@Override 
+    public boolean equals(Object o) {
+      if(o == null)
+        return false;
+      
+      if (!(o instanceof AddressBook))
+        return false;
+      
+      AddressBook book = (AddressBook) o;
+      Iterator it1=ls.iterator();
+      Iterator it2=book.ls.iterator();
+      
+      while(it1.hasNext() && it2.hasNext()) {
+        Entry e1=(Entry)it1.next();
+        Entry e2=(Entry)it2.next();
+        
+        if(!(e1.equals(e2)))
+        {
+          return false;
+        }
+      }
+      if(it1.hasNext() || it2.hasNext())
+      {
+    	  return false;
+      }
+      else
+      {
+    	  return true;
+      }
+    }*/
+    
+    
+}

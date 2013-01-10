@@ -1,0 +1,96 @@
+package edu.nyu.pqs.addressbook;
+
+public class PhoneNumber {
+  int countryCode;
+  int areaCode;
+  int number;
+  
+  public PhoneNumber(int countryCode,int areaCode,int number)
+  {
+      this.countryCode=countryCode;
+      this.areaCode=areaCode;
+      this.number=number;
+  }
+  
+  public void show() {
+    System.out.println("Phone Number: ");
+    System.out.println(countryCode+"-"+areaCode+"-"+number);
+  }
+
+/* (non-Javadoc)
+ * @see java.lang.Object#hashCode()
+ */
+@Override
+public int hashCode() {
+	final int prime = 31;
+	int result = 1;
+	result = prime * result + areaCode;
+	result = prime * result + countryCode;
+	result = prime * result + number;
+	return result;
+}
+
+/* (non-Javadoc)
+ * @see java.lang.Object#equals(java.lang.Object)
+ */
+@Override
+public boolean equals(Object obj) {
+	if (this == obj)
+		return true;
+	if (obj == null)
+		return false;
+	if (!(obj instanceof PhoneNumber))
+		return false;
+	PhoneNumber other = (PhoneNumber) obj;
+	if (areaCode != other.areaCode)
+		return false;
+	if (countryCode != other.countryCode)
+		return false;
+	if (number != other.number)
+		return false;
+	return true;
+}
+
+/**
+ * @return the countryCode
+ */
+public int getCountryCode() {
+	return countryCode;
+}
+
+/**
+ * @param countryCode the countryCode to set
+ */
+public void setCountryCode(int countryCode) {
+	this.countryCode = countryCode;
+}
+
+/**
+ * @return the areaCode
+ */
+public int getAreaCode() {
+	return areaCode;
+}
+
+/**
+ * @param areaCode the areaCode to set
+ */
+public void setAreaCode(int areaCode) {
+	this.areaCode = areaCode;
+}
+
+/**
+ * @return the number
+ */
+public int getNumber() {
+	return number;
+}
+
+/**
+ * @param number the number to set
+ */
+public void setNumber(int number) {
+	this.number = number;
+}
+  
+}
